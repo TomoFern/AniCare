@@ -9,4 +9,8 @@ frm.grid()
 app.title("AniCare")
 app.geometry('500x500')
 app['bg'] = '#de6969'
+userentry = Entry(app, bg = 'white', bd=5)
+userentry.place(relx=0.5, rely=0.5, anchor=CENTER)
+testvar = (userentry.get())
+
 app.mainloop()
