@@ -2,13 +2,13 @@
 import csv
 
 #These lines of code open the usernames csv file and read the items into an array called userarray
-usernames = r'usernames.csv'
+usernames = r'C:\Users\stu-fernandez.t\OneDrive - Brighter Futures Learning Partnership Trust\Documents\GitHub\AniCare\Code\usernames.csv'
 with open(usernames)as userfile:
     userreader = csv.reader(userfile, skipinitialspace=True, delimiter = ',')
     userarray = list(userreader)
 
 #These lines of code open the passwords csv file and read the items into an array called passarray
-passwords = r"passwords.csv"
+passwords = r"C:\Users\stu-fernandez.t\OneDrive - Brighter Futures Learning Partnership Trust\Documents\GitHub\AniCare\Code\passwords.csv"
 with open(passwords)as passfile:
     passreader = csv.reader(passfile, skipinitialspace=True, delimiter = ',')
     passarray = list(passreader)
