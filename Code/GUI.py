@@ -3,6 +3,9 @@ from textwrap import shorten
 from tkinter import *
 from tkinter import ttk
 import LoginValidation
+import os
+import sys
+import MainPageGUI
 
 app = Tk()
 frm = ttk.Frame(app, padding = 10)
@@ -21,8 +24,10 @@ def Checker():
      else:
           password = LoginValidation.PasswordValidator(passstore.get(), username)
           if password == -1:
-               print("Invalid Password")
+               print("Invalid Password") 
           else:
+               app.destroy()
+               MainPageGUI.startmain()
                print("Access Granted")
 
 box = Label(text="")
