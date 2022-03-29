@@ -1,10 +1,8 @@
 from ast import And
 import csv
-from unicodedata import decimal
 
-from numpy import void
-
-breeds = r'C:\Users\tomas\OneDrive\Documents\GitHub\AniCare\Code\animals.csv'
+# breeds = r'C:\Users\stu-fernandez.t\OneDrive - Brighter Futures Learning Partnership Trust\Documents\GitHub\AniCare\Code\animals.csv'
+breeds = r'Code\animals.csv'
 with open(breeds) as breedsfile:
     breedsreader = csv.reader(breedsfile)
     breedsarray = list(breedsreader)
@@ -15,7 +13,7 @@ print(breedsarray)
 animalBreed = input("What breed is the animal: ")
 animalWeight = input("How much does the animal weigh: ")
 animalSex = input("What is the sex of the animal: ")
-#animalName = input("What is the name of the animal: ")
+animalName = input("What is the name of the animal: ")
 
 def AnimalLocator(breed):
     breedFound = False
@@ -23,6 +21,7 @@ def AnimalLocator(breed):
     while breedFound == False:
         if breed == "":
             print("Must input a breed!")
+            break
         elif breedsarray[n][0] == breed:
             print("found")
             breedFound = True
@@ -69,8 +68,8 @@ def WeightChecker(sex, breed, weight):
         roundedUnder = round(under, 3)
         print("Your dog is", roundedUnder, "kg underweight")
 
-def checklistGenerator():
-    
+def checklistGenerator(name):
+    print("")
 
 breedLocation = (AnimalLocator(animalBreed))
 

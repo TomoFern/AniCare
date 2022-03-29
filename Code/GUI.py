@@ -2,6 +2,8 @@
 from textwrap import shorten
 from tkinter import *
 from tkinter import ttk
+
+from soupsieve import escape
 import LoginValidation
 import os
 import sys
@@ -13,11 +15,13 @@ frm.grid()
 app.title("AniCare")
 app.geometry('1920x1080')
 app['bg'] = '#de6969'
+app.wm_attributes("-fullscreen", True)
+
 
 userstore = StringVar()
 passstore = StringVar()
 
-def Checker():
+def Checker(en):
      username = LoginValidation.UsernameValidator(userstore.get())
      if username == -1:
           print("Invalid Username")
@@ -27,8 +31,14 @@ def Checker():
                print("Invalid Password") 
           else:
                app.destroy()
-               MainPageGUI.startmain()
+               MainPageGUI.StartMain()
                print("Access Granted")
+
+def Minimize(e):
+     app.wm_attributes("-fullscreen", False)
+
+app.bind('<Escape>', lambda e: Minimize(e))
+app.bind('<Enter>', lambda en: Checker(en))
 
 box = Label(text="")
 box.config(height = 50, width = 100)
