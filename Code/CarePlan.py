@@ -62,7 +62,7 @@ def WeightChecker(sex, breed, weight):
     elif weight > maxWeight:
         over = (int(weight) - float(maxWeight))
         roundedOver = round(over, 3)
-        print("Your dog is", roundedOver, " kg overweight")
+        print("Your dog is", roundedOver, "kg overweight")
     elif weight < minWeight:
         under = (float(minWeight) - int(weight))
         roundedUnder = round(under, 3)
