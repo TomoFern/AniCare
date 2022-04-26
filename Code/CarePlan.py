@@ -1,8 +1,7 @@
-from ast import And
 import csv
 
 # breeds = r'C:\Users\stu-fernandez.t\OneDrive - Brighter Futures Learning Partnership Trust\Documents\GitHub\AniCare\Code\animals.csv'
-breeds = r'Code\animals.csv'
+breeds = r'animals.csv'
 with open(breeds) as breedsfile:
     breedsreader = csv.reader(breedsfile)
     breedsarray = list(breedsreader)
@@ -36,9 +35,9 @@ def WeightChecker(sex, breed, weight):
     fom = 0
     if sex == "":
         print("Must input a sex!")
-    elif sex == "Male":
+    elif sex.lower() == "male":
         fom = 1
-    elif sex == "Female":
+    elif sex.lower() == "female":
         fom = 4
     else:
         print("Not a valid sex, please enter Male or Female")
@@ -62,6 +61,7 @@ def WeightChecker(sex, breed, weight):
     elif weight > maxWeight:
         over = (int(weight) - float(maxWeight))
         roundedOver = round(over, 3)
+        print("Your dog is", roundedOver, " kg overweight")
         print("Your dog is", roundedOver, "kg overweight")
     elif weight < minWeight:
         under = (float(minWeight) - int(weight))
@@ -74,5 +74,4 @@ def checklistGenerator(name):
 breedLocation = (AnimalLocator(animalBreed))
 
 WeightChecker(animalSex, breedLocation, animalWeight)
-
 
