@@ -1,15 +1,19 @@
-#These 2 lines of code import the Tkinter Library which allows me to create a GUI
-from textwrap import shorten
+#These lines of code import the necessary libraries which allow me to create a GUI
+from textwrap import shorten 
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 
+#This line of code imports the LoginValidaion script which allows me to use the functions
 import LoginValidation
 
+#Here, the LoginScreen function is created where the GUI for the login screen is created
 def LoginScreen():
+     #These statements make the app, userstore and passstore variales global
      global app
      global userstore
      global passstore
+
      app = Tk()
      frm = ttk.Frame(app, padding = 10)
      frm.grid()
@@ -48,7 +52,8 @@ def LoginScreen():
 
      app.mainloop()
 
-def Checker():
+#Here the checker function is defined
+def Checker():  
      username = LoginValidation.UsernameValidator(userstore.get())
      if userstore.get() == "":
           messagebox.showwarning("Oops!", "Please Enter A Username")
@@ -78,9 +83,17 @@ def StartMain():
      homeScreen['bg'] = "#de6969"
      homeScreen.wm_attributes("-fullscreen" , True)
 
-     boxa = Label(text="")
-     boxa.config(height = 55, width = 240)
-     boxa.place(relx = 0.5, rely = 0.5, anchor = CENTER)
+     box = Label(text="Current Animals")
+     box.config(height = 50, width = 100)
+     box.place(relx = 0.03, rely = 0.2)
+
+     boxb = Label(text="Add New Animal")
+     boxb.config(height = 50, width = 100)
+     boxb.place(relx = 0.6, rely = 0.2)
+
+     navbar = Label(text = "")
+     navbar.config(height = 5, width = 250)
+     navbar.place(relx = 0.04, rely = 0.02)
 
      def Minimize(esc):
           homeScreen.wm_attributes("-fullscreen", False)
