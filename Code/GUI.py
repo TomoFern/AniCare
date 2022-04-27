@@ -98,8 +98,27 @@ def StartMain():
      def Minimize(esc):
           homeScreen.wm_attributes("-fullscreen", False)
      
+     def LoadAddAnimal():
+          homeScreen.destroy()
+          AddAnimalPage()
+     
+     newScreenButton = Button(text = "Add New Animal", command = LoadAddAnimal, width=100, height=50)
+     newScreenButton.place(relx = 0.76, rely = 0.2)
+     
      homeScreen.bind('<Escape>', lambda esc: Minimize(esc))
 
      homeScreen.mainloop()
 
-LoginScreen()
+def AddAnimalPage():
+     global animalPage 
+     animalPage = Tk()
+     frmb = ttk.Frame(animalPage, padding = 10)
+     frmb.grid()
+     animalPage.title('AniCare Add Animal Screen')
+     animalPage.geometry('1920x1080')
+     animalPage['bg'] = "#de6969"
+     animalPage.wm_attributes("-fullscreen", True)
+
+StartMain()
+
+#LoginScreen()
